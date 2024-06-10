@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: navy;
+            color: white;
+            padding: 10px 20px;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .menu {
+            display: flex;
+        }
+        .menu a {
+            margin: 0 10px;
+        }
+        main {
+            text-align: center;
+            padding: 50px 20px;
+            background: url('./img/mainvisual-sp.jpg') no-repeat center center/cover;
+            position: relative;
+            height: 100vh;
+        }
+        .main-text {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .section {
+            padding: 50px 20px;
+            background-color: white;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .section:nth-child(even) {
+            background-color: lightgrey;
+        }
+        .section:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="1" d="M0,160L48,160C96,160,192,160,288,170.7C384,181,480,203,576,202.7C672,203,768,181,864,165.3C960,149,1056,139,1152,165.3C1248,192,1344,256,1392,288L1440,320L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>');
+            z-index: 1;
+        }
+        .two-blocks, .three-blocks {
+            display: flex;
+            justify-content: space-between;
+            z-index: 2;
+            position: relative;
+        }
+        .two-blocks div, .three-blocks div {
+            flex: 1;
+            margin: 10px;
+        }
+        .three-blocks img, .two-blocks img {
+            width: 100%;
+        }
+        .three-blocks h3, .three-blocks p {
+            text-align: center;
+        }
+        .section h2, .section h3 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        .underline {
+            position: relative;
+        }
+        .underline:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: #333;
+            transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+        }
+        .underline:hover:after {
+            width: 100%;
+            left: 0;
+        }
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+        }
+        .footer-links a {
+            margin: 0 10px;
+        }
+        footer {
+            background-color: navy;
+            color: white;
+            padding: 20px 0;
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+            .menu.open {
+                display: flex;
+            }
+            .two-blocks, .three-blocks {
+                flex-direction: column;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.hamburger').click(function() {
+                $('.menu').toggleClass('open');
+            });
+
+            $(window).scroll(function() {
+                var scrollTop = $(this).scrollTop();
+                $('main').css({
+                    'opacity': 1 - scrollTop / 400
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">LOGO</div>
+        <div class="hamburger">&#9776;</div>
+        <nav class="menu">
+            <a href="#">ブランド</a>
+            <a href="#">オンラインストア</a>
+            <a href="#">会社概要</a>
+            <a href="#">お問い合わせ</a>
+        </nav>
+    </header>
+    <main>
+        <div class="main-text">
+            <h1>並行輸入が当たり前の時代に</h1>
+            <h2>ブランド×低コスト×ユニーク</h2>
+        </div>
+    </main>
+    <div class="section">
+        <h3 class="underline">ブランド品の通販購入に関してこんな悩みはありませんか?</h3>
+        <div class="two-blocks">
+            <div>
+                <p>CUDDLCAでは、コピー品の販売はしません。
+                下記該当店からの仕入れをします。</p>
+                <p>1. 海外直営店<br>2. 海外正規代理店<br>3. 免税店、特約店</p>
+                                <img src="./img/works4.jpg" alt="Image 2">
+                            </div>
+                            <div>
+                                <p>被らないアイテムが欲しい！<br>
+                                日本で未開発の商品も販売します。<br>
+                                過去人気の廃盤品など、<br>
+                                「希少」且つ「ユニーク」<br>
+                                な商品アイテムを取り揃えております。</p>
+                                <img src="./img/works5.jpg" alt="Image 3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h2 class="underline">ビジネス</h2>
+                        <p>CUDDLCAで取り扱う並行輸入品は、<br>
+                        国内正規店を通さないため、定価に縛られず、安くご提供が可能です。<br>
+                        下記のような商品をお買い求めやすい価格にてご提供します。</p>
+                        <ul>
+                            <li><strong>海外の正規店及びショッピングモールで買ったアイテム</strong></li>
+                            <li><strong>海外限定で日本直営店にないアイテム</strong></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2 class="underline">NEWS</h2>
+                        <div class="three-blocks">
+                            <div>
+                                <h3>新着情報</h3>
+                                <img src="./img/works1.jpg" alt="New Arrivals">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div>
+                                <h3>入荷情報</h3>
+                                <img src="./img/works2.jpg" alt="Arrival Information">
+                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+                            <div>
+                                <h3>SALE情報</h3>
+                                <img src="./img/works3.jpg" alt="Sale Information">
+                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            </div>
+                        </div>
+                        <button>過去の記事はこちら</button>
+                    </div>
+                    <footer>
+                        <div class="footer-links">
+                            <a href="#">ブランド</a>
+                            <a href="#">オンラインストア</a>
+                            <a href="#">会社概要</a>
+                            <a href="#">お問い合わせ</a>
+                        </div>
+                    </footer>
+                </body>
