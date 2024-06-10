@@ -3,209 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Page</title>
+    <title>Sample Page</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            overflow-x: hidden;
+            font-family: Arial, sans-serif;
         }
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #007BFF;
+            background-color: navy;
             color: white;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+            padding: 10px 20px;
         }
-        header .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        header nav {
-            display: flex;
-            gap: 15px;
-        }
-        header nav a {
+        header a {
             color: white;
             text-decoration: none;
-            font-size: 16px;
+            margin: 0 10px;
         }
         .hamburger {
             display: none;
-            flex-direction: column;
             cursor: pointer;
         }
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 4px 0;
+        .menu {
+            display: flex;
         }
-        @media (max-width: 768px) {
-            header nav {
-                display: none;
-                flex-direction: column;
-                background-color: #007BFF;
-                width: 100%;
-                position: absolute;
-                top: 60px;
-                left: 0;
-            }
-            header nav a {
-                padding: 10px;
-                border-bottom: 1px solid #004a8f;
-            }
-            .hamburger {
-                display: flex;
-            }
+        .menu a {
+            margin: 0 10px;
         }
         main {
-            margin-top: 60px;
             text-align: center;
-            padding: 20px;
-        }
-        .main-visual {
-            position: relative;
+            padding: 50px 20px;
             background: url('./img/mainvisual-sp.jpg') no-repeat center center/cover;
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        }
+        .main-text {
             color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-        .main-visual h1, .main-visual p {
-            margin: 0;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.5);
+        .section {
+            padding: 50px 20px;
+            background-color: white;
+            border-top: 10px solid navy;
         }
-        section {
-            padding: 40px 20px;
-            background: linear-gradient(to bottom, #007BFF 0%, #005bb5 100%);
-            color: white;
-            clip-path: polygon(0 0, 100% 2%, 100% 100%, 0 100%);
+        .section:nth-child(even) {
+            background-color: lightgrey;
         }
-        section:nth-child(odd) {
-            background: linear-gradient(to bottom, #005bb5 0%, #007BFF 100%);
-            clip-path: polygon(0 2%, 100% 0, 100% 100%, 0 100%);
-        }
-        .fade {
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .fade.in-view {
-            opacity: 1;
-        }
-        .content {
+        .two-blocks {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-between;
         }
-        .content div {
+        .two-blocks div {
             flex: 1;
-            padding: 20px;
-            min-width: 250px;
+            margin: 10px;
+        }
+        .three-blocks {
+            display: flex;
+            justify-content: space-between;
+        }
+        .three-blocks div {
+            flex: 1;
+            margin: 10px;
+        }
+        .three-blocks img {
+            width: 100%;
+        }
+        .three-blocks h3, .three-blocks p {
+            text-align: center;
+        }
+        .section h2 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+        }
+        .footer-links a {
+            margin: 0 10px;
         }
         footer {
-            background-color: #007BFF;
-            padding: 20px;
-            text-align: center;
+            background-color: navy;
             color: white;
-        }
-        footer nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        footer nav a {
-            color: white;
-            text-decoration: none;
+            padding: 20px 0;
         }
         @media (max-width: 768px) {
-            .content {
+            .hamburger {
+                display: block;
+            }
+            .menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+            .menu.open {
+                display: flex;
+            }
+            .two-blocks {
                 flex-direction: column;
             }
-            footer nav {
+            .three-blocks {
                 flex-direction: column;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
-</head>
-<body>
-    <header>
-        <div class="logo">LOGO</div>
-        <div class="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <nav>
-            <a href="#brand">ブランド</a>
-            <a href="#store">オンラインストア</a>
-            <a href="#about">会社概要</a>
-            <a href="#contact">お問い合わせ</a>
-        </nav>
-    </header>
-    <main>
-        <div class="main-visual">
-            <h1>並行輸入が当たり前の時代に</h1>
-            <p>ブランド×低コスト×ユニーク</p>
-        </div>
-        <section id="brand">
-            <h2 class="fade">ブランド品の通販購入に関してこんな悩みはありませんか?</h2>
-            <div class="content">
-                <div>
-                    <p>ブロック1の内容</p>
-                    <img src="./img/works4.jpg" alt="Image 1" width="100%">
-                </div>
-                <div>
-                    <p>ブロック2の内容</p>
-                    <img src="./img/works5.jpg" alt="Image 2" width="100%">
-                </div>
-            </div>
-        </section>
-        <section id="business">
-            <h2 class="fade">ビジネス</h2>
-            <div class="content">
-                <div>
-                    <p>CUDDLCAで取り扱う並行輸入品は、<br>国内正規店を通さないため、定価に縛られず、安くご提供が可能です。<br>下記のような商品をお買い求めやすい価格にてご提供します。</p>
-                    <p><strong>✓ 海外の正規店及びショッピングモールで買ったアイテム</strong></p>
-                    <p><strong>✓ 海外限定で日本直営店にないアイテム</strong></p>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <nav>
-            <a href="#brand">ブランド</a>
-            <a href="#store">オンラインストア</a>
-            <a href="#about">会社概要</a>
-            <a href="#contact">お問い合わせ</a>
-        </nav>
-    </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
             $('.hamburger').click(function() {
-                $('header nav').slideToggle();
-            });
-
-            $(window).on('scroll', function() {
-                var scrollTop = $(this).scrollTop();
-                $('.main-visual').css('opacity', 1 - scrollTop / 500);
-                $('.fade').each(function() {
-                    var elementTop = $(this).offset().top;
-                    if (scrollTop + $(window).height() > elementTop) {
-                        $(this).addClass('in-view');
-                    }
-                });
+                $('.menu').toggleClass('open');
             });
         });
     </script>
+</head>
+<body>
+    <header>
+        <div class="logo">LOGO</div>
+        <div class="hamburger">&#9776;</div>
+        <nav class="menu">
+            <a href="#">ブランド</a>
+            <a href="#">オンラインストア</a>
+            <a href="#">会社概要</a>
+            <a href="#">お問い合わせ</a>
+        </nav>
+    </header>
+    <main>
+        <div class="main-text">
+            <h1>並行輸入が当たり前の時代に</h1>
+            <h2>ブランド×低コスト×ユニーク</h2>
+        </div>
+    </main>
+    <div class="section">
+        <h2>ブランド品の通販購入に関してこんな悩みはありませんか?</h2>
+        <div class="two-blocks">
+            <div>
+                <p>Example text for block 1.</p>
+                <img src="./img/works4.jpg" alt="Image 2">
+            </div>
+            <div>
+                <p>Example text for block 2.</p>
+                <img src="./img/works5.jpg" alt="Image 3">
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>ビジネス</h2>
+        <p>CUDDLCAで取り扱う並行輸入品は、<br>
+        国内正規店を通さないため、定価に縛られず、安くご提供が可能です。<br>
+        下記のような商品をお買い求めやすい価格にてご提供します。</p>
+        <ul>
+            <li><strong>✓ 海外の正規店及びショッピングモールで買ったアイテム</strong></li>
+            <li><strong>✓ 海外限定で日本直営店にないアイテム</strong></li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>NEWS</h2>
+        <div class="three-blocks">
+            <div>
+                <img src="https://via.placeholder.com/150" alt="新着情報">
+                <h3>新着情報</h3>
+                <p>Example text for new items.</p>
+            </div>
+            <div>
+                <img src="https://via.placeholder.com/150" alt="入荷情報">
+                <h3>入荷情報</h3>
+                <p>Example text for arrival items.</p>
+            </div>
+            <div>
+                <img src="https://via.placeholder.com/150" alt="SALE情報">
+                <h3>SALE情報</h3>
+                <p>Example text for sale items.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button>過去の記事はこちら</button>
+        </div>
+    </div>
+    <footer>
+        <nav class="footer-links">
+            <a href="#">ブランド</a>
+            <a href="#">オンラインストア</a>
+            <a href="#">会社概要</a>
+            <a href="#">お問い合わせ</a>
+        </nav>
+    </footer>
 </body>
 </html>
