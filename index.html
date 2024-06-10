@@ -3,139 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>並行輸入</title>
+    <title>Web Page</title>
     <style>
-        body {
+        body, html {
             margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
         }
-
         header {
+            background-color: #000080;
+            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            position: fixed;
-            width: 100%;
-            top: 0;
         }
-
-        .logo {
-            font-size: 24px;
+        header .logo {
+            font-size: 1.5em;
         }
-
-        nav a {
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+        header nav a {
             color: white;
-            margin: 0 10px;
             text-decoration: none;
         }
-
-        .hamburger {
+        header .menu-icon {
             display: none;
-            flex-direction: column;
-            cursor: pointer;
         }
-
-        .hamburger span {
-            background-color: white;
-            height: 2px;
-            margin: 4px;
-            width: 25px;
-        }
-
-        .mobile-nav {
-            display: none;
-            flex-direction: column;
-            background-color: #007bff;
-            position: absolute;
-            top: 50px;
-            width: 100%;
-            left: 0;
-            padding: 10px 0;
-        }
-
-        .mobile-nav a {
-            padding: 10px 20px;
-            border-top: 1px solid white;
-        }
-
         main {
-            padding-top: 60px;
             text-align: center;
-            background: url('./img/mainvisual-sp.jpg') no-repeat center center;
+            position: relative;
+            background-image: url('./img/mainvisual-sp.jpg');
             background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
             color: white;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
-
-        main h1 {
-            font-size: 2.5em;
-            margin: 0;
+        main .title {
+            font-size: 2em;
         }
-
-        main h2 {
-            font-size: 1.5em;
-            margin: 10px 0 0;
+        main .subtitle {
+            font-size: 1.2em;
+            margin-top: 10px;
         }
-
-        .section-1, .section-2 {
-            padding: 60px 20px;
-            background-color: #f4f4f4;
+        .content {
+            padding: 50px 20px;
+            background-color: #f0f0f0;
             clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
         }
-
-        .section-2 {
-            background-color: #e0e0e0;
+        .section {
+            margin: 20px 0;
         }
-
-        h3 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
+        .section h2 {
+            color: #000080;
         }
-
-        .block-container {
+        .section .block {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
         }
-
-        .block {
-            background-color: white;
-            padding: 20px;
-            margin: 10px;
-            width: 45%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .section .block img {
+            width: 48%;
+        }
+        .footer {
+            background-color: #000080;
+            color: white;
             text-align: center;
+            padding: 20px 0;
         }
-
-        .block img {
-            margin-top: 10px;
-            max-width: 100%;
+        .footer nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
-
-        .business-content p {
-            line-height: 1.6;
+        .footer nav a {
+            color: white;
+            text-decoration: none;
         }
-
         @media (max-width: 768px) {
-            .desktop-nav {
+            header nav {
                 display: none;
+                flex-direction: column;
+                gap: 10px;
+                background-color: #000080;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                padding: 10px;
+                border: 1px solid white;
+                border-radius: 5px;
             }
-
-            .hamburger {
-                display: flex;
+            header .menu-icon {
+                display: block;
+                cursor: pointer;
             }
-
-            .mobile-nav {
-                display: flex;
+            .section .block {
+                flex-direction: column;
             }
-
-            .block {
+            .section .block img {
                 width: 100%;
             }
         }
@@ -143,71 +110,64 @@
 </head>
 <body>
     <header>
-        <div class="logo">LOGO</div>
-        <nav class="desktop-nav">
+        <div class="logo">ロゴマーク</div>
+        <nav>
             <a href="#">ブランド</a>
             <a href="#">オンラインストア</a>
             <a href="#">会社概要</a>
             <a href="#">お問い合わせ</a>
         </nav>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav class="mobile-nav">
-            <a href="#">ブランド</a>
-            <a href="#">オンラインストア</a>
-            <a href="#">会社概要</a>
-            <a href="#">お問い合わせ</a>
-        </nav>
+        <div class="menu-icon">☰</div>
     </header>
-
     <main>
-        <div class="main-content">
-            <h1>並行輸入が当たり前の時代に</h1>
-            <h2>ブランド×低コスト×ユニーク</h2>
-        </div>
+        <div class="title">並行輸入が当たり前の時代に</div>
+        <div class="subtitle">ブランド×低コスト×ユニーク</div>
     </main>
-
-    <section class="section-1">
-        <h3>ブランド品の通販購入に関してこんな悩みはありませんか?</h3>
-        <div class="block-container">
+    <div class="content">
+        <div class="section">
+            <h2>ブランド品の通販購入に関してこんな悩みはありませんか?</h2>
             <div class="block">
-                <p>悩み1の説明文章。</p>
-                <img src="image1.jpg" alt="説明画像1">
-            </div>
-            <div class="block">
-                <p>悩み2の説明文章。</p>
-                <img src="image2.jpg" alt="説明画像2">
+                <div>
+                    <p>ここに何か文章を入れます。</p>
+                    <img src="./img/works4.jpg" alt="Image 2">
+                </div>
+                <div>
+                    <p>ここに何か文章を入れます。</p>
+                    <img src="./img/works5.jpg" alt="Image 3">
+                </div>
             </div>
         </div>
-    </section>
-
-    <section class="section-2">
-        <h3>ビジネス</h3>
-        <div class="business-content">
-            <p>CUDDLCAで取り扱う並行輸入品は、<br>
-                国内正規店を通さないため、<br>
-                定価に縛られず、安くご提供が可能です。<br>
-                下記のような商品を<br>
-                お買い求めやすい価格にてご提供します。<br><br>
+        <div class="section">
+            <h2>ビジネス</h2>
+            <p>
+                CUDDLCAで取り扱う並行輸入品は、<br>
+                国内正規店を通さないため、定価に縛られず、安くご提供が可能です。<br>
+                下記のような商品をお買い求めやすい価格にてご提供します。<br><br>
                 ✓ 海外の正規店及びショッピングモールで買ったアイテム<br>
                 ✓ 海外限定で日本直営店にないアイテム
             </p>
         </div>
-    </section>
-
+    </div>
+    <footer class="footer">
+        <nav>
+            <a href="#">ブランド</a>
+            <a href="#">オンラインストア</a>
+            <a href="#">会社概要</a>
+            <a href="#">お問い合わせ</a>
+        </nav>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('.hamburger').click(function() {
-                $('.mobile-nav').slideToggle();
+        $(document).ready(function(){
+            $('.menu-icon').on('click', function(){
+                $('header nav').toggle();
             });
-
-            $(window).scroll(function() {
-                var scroll = $(window).scrollTop();
-                $('.main-content').css('opacity', 1 - scroll / 500);
+            $(window).scroll(function(){
+                if ($(this).scrollTop() > 50) {
+                    $('main').fadeOut();
+                } else {
+                    $('main').fadeIn();
+                }
             });
         });
     </script>
