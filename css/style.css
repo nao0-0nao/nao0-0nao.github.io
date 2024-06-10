@@ -1,254 +1,135 @@
-@charset "UTF-8";
-
-html {
-  font-size: 100%;
-}
+/* styles.css */
 body {
-  color: #24292e;
-  
-}
-a {
-  text-decoration: none;
-}
-img {
-  max-width: 100%;
-}
-li {
-  list-style: none;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-.wrapper {
-  max-width: 960px;
-  margin: 0 auto 130px auto;
-  font-size: 0.9rem;
-  padding: 0 4%;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
-.site-title{
-  line-height: 1px;
+.logo {
+    font-size: 24px;
 }
 
-.site-title a {
-  display: block;
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
 }
 
-.sec-title {
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 65px;
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-/*ヘッダー*/
-
-#header {
-  max-width: 960px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 270px;
-  margin: 0 auto;
-  padding: 0 4%;
+.hamburger span {
+    background-color: white;
+    height: 2px;
+    margin: 4px;
+    width: 25px;
 }
 
-#header ul {
-  display: flex;
-  padding: 10px 0;
-} 
-
-#header li {
-  font-size: 0.9rem;
-  margin-left: 30px;
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #007bff;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    left: 0;
+    padding: 10px 0;
 }
 
-#header li a {
-  color: #24292e;
+.mobile-nav a {
+    padding: 10px 20px;
+    border-top: 1px solid white;
 }
 
-#header li a:hover {
-  opacity: 0.7;
+main {
+    padding-top: 60px;
+    text-align: center;
+    background: url('background-image.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-#header li img.icon {
-  width: 20px;
+main h1 {
+    font-size: 2.5em;
+    margin: 0;
 }
 
-
-/*main*/
-
-#mainvisual {
-  margin-bottom: 80px;
+main h2 {
+    font-size: 1.5em;
+    margin: 10px 0 0;
 }
 
-#mainvisual img{
-  width: 100%;
-  max-width: 1920px;
-  height: 420px;
-  object-fit: cover;
+.section-1, .section-2 {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+    clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
 }
 
-/*-------------------------------------------
-About
--------------------------------------------*/
-#about ul {
-  margin-bottom: 30px;
-}
-#about li:first-child {
-  margin-bottom: 30px;
-}
-#about p {
-  text-align:justify;
+.section-2 {
+    background-color: #e0e0e0;
 }
 
-/*-------------------------------------------
-Works
--------------------------------------------*/
-#works ul {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-}
-#works li {
-  width: 31%;
-  margin-bottom: 23px;
+h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
 }
 
-/*-------------------------------------------
-News
--------------------------------------------*/
-#news dl {
-  display: flex;
-  flex-wrap: wrap;
-  border-top: solid 1px #c8c8c8;
-  margin-bottom: 20px;
-}
-#news dt {
-  width: 20%;
-  border-bottom: solid 1px #c8c8c8;
-  padding: 15px;
-}
-#news dd {
-  width: 80%;
-  border-bottom: solid 1px #c8c8c8;
-  padding: 15px;
+.block-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-/*-------------------------------------------
-Contact
--------------------------------------------*/
-#contact dl {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-#contact dt {
-  width: 15%;
-}
-#contact dd {
-  width: 85%;
-  margin-bottom: 10px;
-}
-#contact dd input,
-#contact dd textarea {
-  width: 100%;
-  border: solid 1px #c8c8c8;
-  padding: 10px;
-}
-#contact dd textarea {
-  height: 10rem;
-}
-#contact .button {
-  text-align: center;
-}
-#contact .button input {
-  width: 200px;
-  background-color: #24292e;
-  color: #fff;
-  padding: 15px 0;
-  border: solid 1px #24292e;
-}
-#contact .button input:hover {
-  background: #fff;
-  color: #24292e;
+.block {
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    width: 45%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-/*-------------------------------------------
-フッター
--------------------------------------------*/
-#footer {
-  background-color: #24292e;
-  color: #fff;
-  font-size: 0.5rem;
-  padding: 10px 20px;
-  text-align: center;
-}
-
-/*-------------------------------------------
-SP
--------------------------------------------*/
-@media screen and (max-width: 600px) {
-  .wrapper {
-    margin-bottom: 70px;
-  }
-  .site-title {
-    margin-top: 20px;
-  }
-  .sec-title {
-    margin-bottom: 40px;
-  }
-
-  /*-------------------------------------------
-  ヘッダー
-  -------------------------------------------*/
-  #header {
+.block img {
+    margin-top: 10px;
     max-width: 100%;
-    height: auto;
-    flex-direction: column;
-  }
-  #header li {
-    font-size: 0.8rem;
-    margin-left: 20px;
-  }
-  #header li:first-child {
-    margin-left: 0;
-  }
+}
 
-  /*-------------------------------------------
-  Works
-  -------------------------------------------*/
-  #works ul {
-    flex-direction: column;
-  }
-  #works li {
-    width: 100%;
-  }
+.business-content p {
+    line-height: 1.6;
+}
 
-  /*-------------------------------------------
-  News
-  -------------------------------------------*/
-  #news dl {
-    flex-direction: column;
-  }
-  #news dt {
-    width: 100%;
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-  #news dd {
-    width: 100%;
-    padding-top: 0;
-  }
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
 
-  /*-------------------------------------------
-  Contact
-  -------------------------------------------*/
-  #contact dl {
-    flex-direction: column;
-  }
-  #contact dt {
-    width: 100%;
-  }
-  #contact dd {
-    width: 100%;
-  }
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-nav {
+        display: flex;
+    }
+
+    .block {
+        width: 100%;
+    }
 }
