@@ -60,14 +60,25 @@
         }
         .section h2 {
             color: #000080;
+            font-size: 1.5em;
+            border-bottom: 2px solid #000080;
+            display: inline-block;
+            margin-bottom: 20px;
         }
         .section .block {
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
             gap: 20px;
         }
+        .section .block > div {
+            flex: 1 1 calc(50% - 20px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            background-color: white;
+        }
         .section .block img {
-            width: 48%;
+            max-width: 100%;
+            height: auto;
         }
         .footer {
             background-color: #000080;
@@ -78,6 +89,7 @@
         .footer nav {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 20px;
         }
         .footer nav a {
@@ -104,8 +116,12 @@
             .section .block {
                 flex-direction: column;
             }
-            .section .block img {
-                width: 100%;
+            .section .block > div {
+                flex: 1 1 100%;
+            }
+            .footer nav {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -162,7 +178,7 @@
     <script>
         $(document).ready(function(){
             $('.menu-icon').on('click', function(){
-                $('header nav').toggle();
+                $('header nav').slideToggle();
             });
             $(window).scroll(function(){
                 if ($(this).scrollTop() > 50) {
