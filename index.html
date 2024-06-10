@@ -1,96 +1,68 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <title>Profile</title>
-    <meta name="description" content="テキストテキストテキストテキストテキストテキストテキストテキスト">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="./img/favicon.ico">
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-  </head>
-
-  <body>
-    <header id="header">
-      <h1 class="site-title"><a href="index.html"><img src="./img/logo.svg" alt="My work"></a></h1>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#works">Works</a></li>
-          <li><a href="#news">News</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li>
-            <a href="https://www.instagram.com/" target="_blank">
-              <img class="icon" src="./img/icon-instagram.png" alt="インスタグラム">
-            </a>
-          </li>
-        </ul>
-      </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>並行輸入</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">LOGO</div>
+        <nav class="desktop-nav">
+            <a href="#">ブランド</a>
+            <a href="#">オンラインストア</a>
+            <a href="#">会社概要</a>
+            <a href="#">お問い合わせ</a>
+        </nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="mobile-nav">
+            <a href="#">ブランド</a>
+            <a href="#">オンラインストア</a>
+            <a href="#">会社概要</a>
+            <a href="#">お問い合わせ</a>
+        </nav>
     </header>
 
     <main>
-      <div id="mainvisual">
-        <picture>
-          <source media="(max-width:600px)" srcset="./img/mainvisual-sp.jpg">
-          <img src="./img/mainvisual-pc.jpg" alt="テキスト１">
-        </picture>
-      </div>
-
-      <section id="about" class="wrapper">
-        <h2 class="sec-title">About</h2>
-        <ul>
-          <li>Xxxxx nao</li>
-          <li>000-0000</li>
-          <li>tel:000-000</li>
-          <li>url:www.wwwww</li>
-          <li>mail:aaaaaaa@gmail.com</li>
-        </ul>
-        <p>プロフィール
-           初めまして
-        </p>
-      </section>
-
-      <section id="works" class="wrapper">
-        <h2 class="sec-title">Works</h2>
-        <ul>
-          <li><img src="./img/works1.jpg" alt="アイウエオ"></li>
-          <li><img src="./img/works2.jpg" alt="アイウエオ"></li>
-          <li><img src="./img/works3.jpg" alt="アイウエオ"></li>
-          <li><img src="./img/works4.jpg" alt="アイウエオ"></li>
-          <li><img src="./img/works5.jpg" alt="アイウエオ"></li>
-          <li><img src="./img/works6.jpg" alt="アイウエオ"></li>
-        </ul>
-      </section>
-
-      <section id="news" class="wrapper">
-        <h2 class="sec-title">News</h2>
-        <dl>
-          <dt>2024.3.20</dt>
-          <dd>デザイン雑誌　〜に掲載していただきました</dd>
-          <dt>2024.3.19</dt>
-          <dd>販売を開始します。</dd>
-        </dl>
-      </section>
-
-      <section id="contact" class="wrapper">
-        <h2 class="sec-title">Contact</h2>
-        <form action="#" method="post">
-          <dl>
-            <dt><label for="name">NAME</label></dt>
-            <dd><input type="text" id="name" name="your-name"></dd>
-            <dt><label for="email">E-mail</label></dt>
-            <dd><input type="email" id="email" name="your-email"></dd>
-            <dt><label for="message">MESSAGE</label></dt>
-            <dd><textarea id="message" name="your-message"></textarea></dd>
-          </dl>
-          <div class="button"><input type="submit" value="送信"></div>
-        </form>
-      </section>
+        <div class="main-content">
+            <h1>並行輸入が当たり前の時代に</h1>
+            <h2>ブランド×低コスト×ユニーク</h2>
+        </div>
     </main>
 
-    <footer id="footer">
-      <p>&copy; 2024 my Work</p>
-    </footer>
-  </body>
-</html>
+    <section class="section-1">
+        <h3>ブランド品の通販購入に関してこんな悩みはありませんか?</h3>
+        <div class="block-container">
+            <div class="block">
+                <p>悩み1の説明文章。</p>
+                <img src="image1.jpg" alt="説明画像1">
+            </div>
+            <div class="block">
+                <p>悩み2の説明文章。</p>
+                <img src="image2.jpg" alt="説明画像2">
+            </div>
+        </div>
+    </section>
 
+    <section class="section-2">
+        <h3>ビジネス</h3>
+        <div class="business-content">
+            <p>CUDDLCAで取り扱う並行輸入品は、<br>
+                国内正規店を通さないため、<br>
+                定価に縛られず、安くご提供が可能です。<br>
+                下記のような商品を<br>
+                お買い求めやすい価格にてご提供します。<br><br>
+                ✓ 海外の正規店及びショッピングモールで買ったアイテム<br>
+                ✓ 海外限定で日本直営店にないアイテム
+            </p>
+        </div>
+    </section>
+</body>
+</html>
