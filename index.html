@@ -36,6 +36,7 @@
         header .menu-icon {
             display: none;
             cursor: pointer;
+            font-size: 1.5em;
         }
         main {
             text-align: center;
@@ -193,7 +194,7 @@
     <script>
         $(document).ready(function(){
             $('.menu-icon').on('click', function(){
-                $('header nav').slideToggle().css('flex-direction', 'column');
+                $('header nav').slideToggle();
             });
         });
     </script>
