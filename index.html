@@ -5,169 +5,205 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Page</title>
     <style>
-        body, html {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            overflow-x: hidden;
         }
         header {
-            background-color: #000080;
-            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
         header .logo {
-            font-size: 1.5em;
+            font-size: 24px;
+            font-weight: bold;
         }
         header nav {
             display: flex;
-            gap: 20px;
+            gap: 15px;
         }
         header nav a {
             color: white;
             text-decoration: none;
+            font-size: 16px;
         }
-        header .menu-icon {
+        .hamburger {
             display: none;
+            flex-direction: column;
+            cursor: pointer;
         }
-        main {
-            text-align: center;
-            position: relative;
-            background-image: url('./img/mainvisual-sp.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 100px 20px;
-            color: white;
-        }
-        main .title {
-            font-size: 2em;
-        }
-        main .subtitle {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-        .content {
-            padding: 50px 20px;
-            background-color: #f0f0f0;
-            clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
-        }
-        .section {
-            margin: 20px 0;
-        }
-        .section h2 {
-            color: #000080;
-        }
-        .section .block {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-        }
-        .section .block img {
-            width: 48%;
-        }
-        .footer {
-            background-color: #000080;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        .footer nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .footer nav a {
-            color: white;
-            text-decoration: none;
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
         }
         @media (max-width: 768px) {
             header nav {
                 display: none;
                 flex-direction: column;
-                gap: 10px;
-                background-color: #000080;
+                background-color: #007BFF;
+                width: 100%;
                 position: absolute;
                 top: 60px;
-                right: 20px;
+                left: 0;
+            }
+            header nav a {
                 padding: 10px;
-                border: 1px solid white;
-                border-radius: 5px;
+                border-bottom: 1px solid #004a8f;
             }
-            header .menu-icon {
-                display: block;
-                cursor: pointer;
+            .hamburger {
+                display: flex;
             }
-            .section .block {
+        }
+        main {
+            margin-top: 60px;
+            text-align: center;
+            padding: 20px;
+        }
+        .main-visual {
+            position: relative;
+            background: url('./img/mainvisual-sp.jpg') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+        }
+        .main-visual h1, .main-visual p {
+            margin: 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        section {
+            padding: 40px 20px;
+            background: linear-gradient(to bottom, #007BFF 0%, #005bb5 100%);
+            color: white;
+            clip-path: polygon(0 0, 100% 2%, 100% 100%, 0 100%);
+        }
+        section:nth-child(odd) {
+            background: linear-gradient(to bottom, #005bb5 0%, #007BFF 100%);
+            clip-path: polygon(0 2%, 100% 0, 100% 100%, 0 100%);
+        }
+        .fade {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .fade.in-view {
+            opacity: 1;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .content div {
+            flex: 1;
+            padding: 20px;
+            min-width: 250px;
+        }
+        footer {
+            background-color: #007BFF;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        footer nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        footer nav a {
+            color: white;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .content {
                 flex-direction: column;
             }
-            .section .block img {
-                width: 100%;
+            footer nav {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">ロゴマーク</div>
+        <div class="logo">LOGO</div>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <nav>
-            <a href="#">ブランド</a>
-            <a href="#">オンラインストア</a>
-            <a href="#">会社概要</a>
-            <a href="#">お問い合わせ</a>
+            <a href="#brand">ブランド</a>
+            <a href="#store">オンラインストア</a>
+            <a href="#about">会社概要</a>
+            <a href="#contact">お問い合わせ</a>
         </nav>
-        <div class="menu-icon">☰</div>
     </header>
     <main>
-        <div class="title">並行輸入が当たり前の時代に</div>
-        <div class="subtitle">ブランド×低コスト×ユニーク</div>
-    </main>
-    <div class="content">
-        <div class="section">
-            <h2>ブランド品の通販購入に関してこんな悩みはありませんか?</h2>
-            <div class="block">
+        <div class="main-visual">
+            <h1>並行輸入が当たり前の時代に</h1>
+            <p>ブランド×低コスト×ユニーク</p>
+        </div>
+        <section id="brand">
+            <h2 class="fade">ブランド品の通販購入に関してこんな悩みはありませんか?</h2>
+            <div class="content">
                 <div>
-                    <p>ここに何か文章を入れます。</p>
-                    <img src="./img/works4.jpg" alt="Image 2">
+                    <p>ブロック1の内容</p>
+                    <img src="./img/works4.jpg" alt="Image 1" width="100%">
                 </div>
                 <div>
-                    <p>ここに何か文章を入れます。</p>
-                    <img src="./img/works5.jpg" alt="Image 3">
+                    <p>ブロック2の内容</p>
+                    <img src="./img/works5.jpg" alt="Image 2" width="100%">
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <h2>ビジネス</h2>
-            <p>
-                CUDDLCAで取り扱う並行輸入品は、<br>
-                国内正規店を通さないため、定価に縛られず、安くご提供が可能です。<br>
-                下記のような商品をお買い求めやすい価格にてご提供します。<br><br>
-                ✓ 海外の正規店及びショッピングモールで買ったアイテム<br>
-                ✓ 海外限定で日本直営店にないアイテム
-            </p>
-        </div>
-    </div>
-    <footer class="footer">
+        </section>
+        <section id="business">
+            <h2 class="fade">ビジネス</h2>
+            <div class="content">
+                <div>
+                    <p>CUDDLCAで取り扱う並行輸入品は、<br>国内正規店を通さないため、定価に縛られず、安くご提供が可能です。<br>下記のような商品をお買い求めやすい価格にてご提供します。</p>
+                    <p><strong>✓ 海外の正規店及びショッピングモールで買ったアイテム</strong></p>
+                    <p><strong>✓ 海外限定で日本直営店にないアイテム</strong></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
         <nav>
-            <a href="#">ブランド</a>
-            <a href="#">オンラインストア</a>
-            <a href="#">会社概要</a>
-            <a href="#">お問い合わせ</a>
+            <a href="#brand">ブランド</a>
+            <a href="#store">オンラインストア</a>
+            <a href="#about">会社概要</a>
+            <a href="#contact">お問い合わせ</a>
         </nav>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function(){
-            $('.menu-icon').on('click', function(){
-                $('header nav').toggle();
+        $(document).ready(function() {
+            $('.hamburger').click(function() {
+                $('header nav').slideToggle();
             });
-            $(window).scroll(function(){
-                if ($(this).scrollTop() > 50) {
-                    $('main').fadeOut();
-                } else {
-                    $('main').fadeIn();
-                }
+
+            $(window).on('scroll', function() {
+                var scrollTop = $(this).scrollTop();
+                $('.main-visual').css('opacity', 1 - scrollTop / 500);
+                $('.fade').each(function() {
+                    var elementTop = $(this).offset().top;
+                    if (scrollTop + $(window).height() > elementTop) {
+                        $(this).addClass('in-view');
+                    }
+                });
             });
         });
     </script>
