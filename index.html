@@ -78,7 +78,6 @@
             border-bottom: 2px solid #000080;
             display: inline-block;
             margin-bottom: 20px;
-            animation: fadeIn 1s ease-in-out;
         }
         .section .block {
             display: flex;
@@ -90,10 +89,17 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             padding: 20px;
             background-color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
         }
         .section .block img {
             max-width: 100%;
             height: auto;
+        }
+        .section.fade-in-up .block > div {
+            opacity: 1;
+            transform: translateY(0);
         }
         .footer {
             background-color: #000080;
@@ -138,28 +144,6 @@
                 flex-direction: column;
                 align-items: center;
             }
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .fade-in-up {
-            opacity: 0;
-            animation: fadeInUp 1s ease-in-out forwards;
         }
     </style>
 </head>
@@ -235,11 +219,17 @@
             $('.menu-icon').on('click', function(){
                 $('header nav').slideToggle();
             });
-            
+
             $(window).on('scroll', function() {
                 $('.fade-in-up').each(function() {
                     if ($(this).offset().top < $(window).scrollTop() + $(window).height() * 0.8) {
                         $(this).addClass('animated');
+                    }
+                });
+
+                $('.section .block > div').each(function() {
+                    if ($(this).offset().top < $(window).scrollTop() + $(window).height() * 0.8) {
+                        $(this).css('opacity', 1).css('transform', 'translateY(0)');
                     }
                 });
             });
