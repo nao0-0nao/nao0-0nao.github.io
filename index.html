@@ -43,7 +43,6 @@
             position: relative;
             background-image: url('./img/mainvisual-sp.jpg');
             background-size: cover;
-            background-attachment: fixed;
             background-position: center;
             padding: 100px 20px;
             color: white;
@@ -69,7 +68,8 @@
             padding: 50px 20px;
             background-color: #f0f0f0;
             clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
-            background-attachment: fixed;
+            opacity: 0;
+            transition: opacity 1s;
         }
         .section {
             margin: 20px 0;
@@ -195,6 +195,14 @@
         $(document).ready(function(){
             $('.menu-icon').on('click', function(){
                 $('header nav').slideToggle();
+            });
+            
+            $(window).on('scroll', function() {
+                $('.content').each(function() {
+                    if ($(this).offset().top < $(window).scrollTop() + $(window).height() * 0.8) {
+                        $(this).css('opacity', 1);
+                    }
+                });
             });
         });
     </script>
