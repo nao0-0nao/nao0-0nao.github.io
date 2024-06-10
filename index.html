@@ -4,9 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>並行輸入</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./scripts.js" defer></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+
+        .logo {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            background-color: white;
+            height: 2px;
+            margin: 4px;
+            width: 25px;
+        }
+
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            background-color: #007bff;
+            position: absolute;
+            top: 50px;
+            width: 100%;
+            left: 0;
+            padding: 10px 0;
+        }
+
+        .mobile-nav a {
+            padding: 10px 20px;
+            border-top: 1px solid white;
+        }
+
+        main {
+            padding-top: 60px;
+            text-align: center;
+            background: url('background-image.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        main h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        main h2 {
+            font-size: 1.5em;
+            margin: 10px 0 0;
+        }
+
+        .section-1, .section-2 {
+            padding: 60px 20px;
+            background-color: #f4f4f4;
+            clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
+        }
+
+        .section-2 {
+            background-color: #e0e0e0;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .block-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .block {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            width: 45%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .block img {
+            margin-top: 10px;
+            max-width: 100%;
+        }
+
+        .business-content p {
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-nav {
+                display: flex;
+            }
+
+            .block {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -64,5 +197,19 @@
             </p>
         </div>
     </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.hamburger').click(function() {
+                $('.mobile-nav').slideToggle();
+            });
+
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                $('.main-content').css('opacity', 1 - scroll / 500);
+            });
+        });
+    </script>
 </body>
 </html>
