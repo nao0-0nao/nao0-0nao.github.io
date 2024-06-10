@@ -18,7 +18,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            position: relative;
+            position: fixed;
+            width: 100%;
             z-index: 1000;
         }
         header .logo {
@@ -67,6 +68,7 @@
             padding: 50px 20px;
             background-color: #f0f0f0;
             clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
+            background-attachment: fixed;
         }
         .section {
             margin: 20px 0;
@@ -191,14 +193,7 @@
     <script>
         $(document).ready(function(){
             $('.menu-icon').on('click', function(){
-                $('header nav').slideToggle();
-            });
-            $(window).scroll(function(){
-                if ($(this).scrollTop() > 50) {
-                    $('main').fadeOut();
-                } else {
-                    $('main').fadeIn();
-                }
+                $('header nav').slideToggle().css('flex-direction', 'column');
             });
         });
     </script>
